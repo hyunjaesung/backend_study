@@ -1,6 +1,7 @@
 package hello.hellospring;
 
 import hello.hellospring.repository.JdbcMemberRepository;
+import hello.hellospring.repository.JdbcTemplateMemberRepository;
 import hello.hellospring.repository.MemberRepository;
 
 import hello.hellospring.service.MemberService;
@@ -28,8 +29,10 @@ public class SpringConfig {
     public MemberRepository memberRepository(){
         // 바꿔치기!!
         //        return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+//        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
     }
+
 
     // Controller 는 원래 스프링이 관리하는거라서 따로 등록 필요 없다
     // Autowire 쓰면된다
