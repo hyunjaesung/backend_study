@@ -1,50 +1,24 @@
 package hello.hellospring;
 
-import hello.hellospring.repository.JdbcMemberRepository;
-import hello.hellospring.repository.JdbcTemplateMemberRepository;
-import hello.hellospring.repository.JpaMemberRepository;
 import hello.hellospring.repository.MemberRepository;
 
 import hello.hellospring.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.persistence.EntityManager;
-import javax.sql.DataSource;
-
 @Configuration
 public class SpringConfig {
+    private final MemberRepository memberRepository;
 
-    private EntityManager em;
-
-    @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    // JpaRepository를 상속만 해놔도 등록을 다해놔서 자동으로 가져온다
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
-//    private final DataSource dataSource;
-//
-//    @Autowired
-//    public SpringConfig(DataSource dataSource) {
-//        this.dataSource = dataSource;
-//    }
     @Bean
     public MemberService memberService(){
-        // MemberRepository 도 Bean 만들어서 등록해주자
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
-    @Bean
-    public MemberRepository memberRepository(){
-//      바꿔치기!!
-//      return new MemoryMemberRepository();
-//      return new JdbcMemberRepository(dataSource);
-//      return new JdbcTemplateMemberRepository(dataSource);
-        return  new JpaMemberRepository(em);
-    }
-
-
-    // Controller 는 원래 스프링이 관리하는거라서 따로 등록 필요 없다
-    // Autowire 쓰면된다
 }
