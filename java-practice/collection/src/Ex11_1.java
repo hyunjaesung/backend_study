@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Ex11_1 {
     public static void main(String[] args) {
-        ArrayList list1 = new ArrayList(10);
+        ArrayList list1 = new ArrayList(1);
 
         list1.add(5);
         list1.add(4);
