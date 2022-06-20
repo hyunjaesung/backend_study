@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/collection/collection.iml" filepath="$PROJECT_DIR$/collection/collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-practice.iml" filepath="$PROJECT_DIR$/java-practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lambda/lambda.iml" filepath="$PROJECT_DIR$/lambda/lambda.iml" />
     </modules>
   </component>
 </project>
