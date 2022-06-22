@@ -16,7 +16,7 @@ public class Ex14_2 {
 
         ArrayList<Object> objectList = null;
         ArrayList<String> stringList = null;
-        stringList = (ArrayList<String>)objectList;
+//        stringList = (ArrayList<String>)objectList;
 
 
     }
