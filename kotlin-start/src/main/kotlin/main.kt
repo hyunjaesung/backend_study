@@ -63,6 +63,25 @@ fun manyForLoop(){
     }
 }
 
+fun repeat(str: String, num: Int = 3, useNewLine: Boolean = true){
+    for(i in 1..num){
+        if(useNewLine)
+            println(str)
+        else
+            print(str)
+    }
+}
+
+fun printAll(vararg strings: String){
+    for(string in strings){
+        println(string)
+    }
+
+}
+
+
 fun main() {
-    manyForLoop();
+    repeat("바보", useNewLine = false);
+    val arr = arrayOf("멍청이", "재수탱이", "히어로");
+    printAll(*arr)
 }
