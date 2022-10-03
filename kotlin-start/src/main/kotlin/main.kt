@@ -1,3 +1,5 @@
+import java.util.IllegalFormatException
+
 fun getPassOrFail(score: Int): String {
     return if (score >= 50) {
         "P"
@@ -79,9 +81,22 @@ fun printAll(vararg strings: String){
 
 }
 
+class KotlinPerson(val name: String = "stevy", var age: Int = 100){
+    init {
+        if(age <= 0){
+            throw IllegalArgumentException("나이가 $age 로 너무 낮습니다")
+        }
+    }
+
+    val upperName
+        get() = this.name.uppercase();
+
+    val upperName2 = name
+        get() = field.uppercase()
+}
+
 
 fun main() {
-    repeat("바보", useNewLine = false);
-    val arr = arrayOf("멍청이", "재수탱이", "히어로");
-    printAll(*arr)
+    val person = KotlinPerson("stevy");
+    println("${person.upperName},${person.upperName2}, ${person.age}");
 }
