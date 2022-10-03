@@ -89,7 +89,7 @@ class KotlinPerson(val name: String = "stevy", var age: Int = 100){
     }
 
     val upperName
-        get() = this.name.uppercase();
+        get() = name.uppercase();
 
     val upperName2 = name
         get() = field.uppercase()
