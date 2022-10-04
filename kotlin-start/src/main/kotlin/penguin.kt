@@ -2,26 +2,37 @@ abstract class Animal(protected val species: String, protected open val legCount
     abstract fun move()
 }
 
-class Cat(species: String) : Animal(species, 4) {
-    override fun move() {
-        println("사뿐 사뿐 걸어가는 고양이의 종은 $species")
+interface Flyable {
+    fun act() {
+        println("파닥 파닥")
     }
 }
 
-class Penguin(species: String) : Animal(species, 2){
-    private val wingCount: Int = 2
-
-    override fun move() {
-        println("뒤뚱 뒤뚱 펭귄의 다리는 ${legCount}개")
+interface Swimable {
+    fun act() {
+        println("어푸 어푸")
     }
+}
 
+class Penguin(species: String) : Animal(species, 2), Flyable, Swimable{
+    val wingCount: Int = 2
     override val legCount
-        get() = wingCount + super.legCount
+        get() = super.legCount + wingCount
+
+
+    override fun move() {
+        println("펭귄 무브 무브")
+    }
+
+    override fun act() {
+        super<Flyable>.act();
+        super<Swimable>.act();
+    }
 }
 
-fun main(){
-    val cat = Cat("고등어")
-    cat.move()
+fun main() {
     val penguin = Penguin("황제")
-    penguin.move()
+
+    penguin.act();
+    penguin.move();
 }
