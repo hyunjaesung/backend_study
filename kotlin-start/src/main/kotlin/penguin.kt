@@ -20,8 +20,8 @@ class Penguin(species: String) : Animal(species, 2), Flyable, Swimable{
         get() = super.legCount + wingCount
 
 
-    override fun move() {
-        println("펭귄 무브 무브")
+    override fun move(){
+     println("펭귄 무브 무브")
     }
 
     override fun act() {
